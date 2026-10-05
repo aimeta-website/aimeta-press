@@ -21,6 +21,17 @@
     document.addEventListener('click', e => { if (!e.target.closest('.site-header')) closeMenu(); });
     window.matchMedia('(min-width: 701px)').addEventListener('change', closeMenu);
   }
+  const revealItems = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && revealItems.length) {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { entry.target.classList.add('in'); io.unobserve(entry.target); }
+      });
+    }, { threshold: 0.12 });
+    revealItems.forEach(el => io.observe(el));
+  } else {
+    revealItems.forEach(el => el.classList.add('in'));
+  }
   const year = document.getElementById('year');
   if (year) year.textContent = String(new Date().getFullYear());
 })();
