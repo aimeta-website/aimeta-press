@@ -8,7 +8,7 @@ Based on the shared pixel / voxel design language of [aimeta.website](https://gi
 
 - `index.html`: brand homepage, current project links and clearly labelled plans.
 - `404.html`: custom not-found page.
-- `style.css`, `main.js`: responsive styles and accessible mobile navigation.
+- `css/style.css`, `js/main.js`: responsive styles and accessible mobile navigation.
 - `favicon.svg`: brand-colour cube icon.
 - `CNAME`, `.nojekyll`, `robots.txt`, `sitemap.xml`: custom-domain and discovery files.
 
@@ -28,4 +28,4 @@ The same files can be served by IIS, Nginx or any static host. On IIS, copy the 
 
 ## Editing
 
-Edit copy and project links in `index.html`, colours and layout in `style.css`. Keep concepts and planned services labelled as such. The independent portal links to existing subdomain applications; their source and deployments are separate.
+Edit copy and project links in `index.html`, colours and layout in `css/style.css`. Keep concepts and planned services labelled as such. The independent portal links to existing subdomain applications; their source and deployments are separate.
