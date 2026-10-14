@@ -32,6 +32,31 @@
   } else {
     revealItems.forEach(el => el.classList.add('in'));
   }
+  // Copy without launching a mail application; address remains readable/selectable.
+  document.querySelectorAll('[data-copy-email]').forEach(button => {
+    button.addEventListener('click', async () => {
+      const email = button.getAttribute('data-copy-email');
+      const feedback = button.closest('.contact-actions')?.querySelector('.copy-feedback');
+      let copied = false;
+      if (navigator.clipboard && window.isSecureContext) {
+        try { await navigator.clipboard.writeText(email); copied = true; } catch (_) {}
+      }
+      if (!copied) {
+        const input = document.createElement('textarea');
+        input.value = email;
+        input.setAttribute('readonly', '');
+        input.style.position = 'fixed';
+        input.style.opacity = '0';
+        document.body.appendChild(input);
+        input.select();
+        try { copied = document.execCommand('copy'); } catch (_) {}
+        input.remove();
+      }
+      if (feedback) feedback.textContent = copied ? 'Email address copied.' : 'Please select and copy the address shown above.';
+    });
+  });
+
+
   const year = document.getElementById('year');
   if (year) year.textContent = String(new Date().getFullYear());
 })();
