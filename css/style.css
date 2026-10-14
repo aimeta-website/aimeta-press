@@ -581,3 +581,7 @@ section[id] { scroll-margin-top:110px; }
 .contact-copy:focus-visible,.contact-mail:focus-visible {outline:3px solid var(--ink); outline-offset:4px;}
 .copy-feedback {display:block; min-height:1.5em; color:var(--ink-soft); margin-top:8px; font-size:13px;}
 @media(max-width:750px) { .contact-card {grid-template-columns:1fr; gap:22px; padding:25px 22px;} .contact-section {padding:36px 0 48px;} }
+
+/* Quiet contact link in the opening view. */
+.hero-contact {margin:16px 0 0; font-size:14px; color:var(--ink-soft);}
+.hero-contact a {font-weight:800; color:var(--ink); text-underline-offset:4px;}
